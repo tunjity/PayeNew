@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html>
+<html>
+
+    <!--test -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Tax Payer</title>
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrapnew.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/typeahead.css" /><!-- not present -->
+    <link rel="stylesheet" type="text/css" href="css/components.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/plugins.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+     <link rel="shortcut icon" href="images/favicon.jpg" />
+
+</head>
+<body>
+    <div id="domMessage" style="display:none;">
+        <h4>We are processing your request. Please be patient.</h4>
+    </div>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="../Content/Images/EIRS-logo.png">
+                        <img src="../Content/Images/Logo.png">
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="#">User Name</a></li>
+                    <li><a href="IndividualLogin.html">Logout</a></li>
+                </ul>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMainMenu" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-collapse collapse" id="navMainMenu" aria-expanded="false">
+                    <ul class="nav navbar-nav">
+                        <li class=" switch-li no-hover">
+                            <a href="index.html">
+                                <label class="switch">
+                                    <input type="checkbox" checked="checked" id="chkMenuSwitch">
+                                    <span class="slider round"></span>
+                                </label>
+                            </a>
+                        </li>
+                        <li class="search-li no-hover">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-magnifier"></i> <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        All
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Individuals
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Corporates
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Buildings
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Businesses
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Vehicles
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="dropdown-menu-item checkbox">
+                                        <input type="checkbox" />
+                                        <span class="fa fa-square-o"></span>
+                                        Lands
+                                    </label>
+                                </li>
+                            </ul>
+                            <input type="text" class="form-control" placeholder="Search">
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Capture<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="IndividualCapture.html">Individuals</a></li>
+                                <li><a href="CorporateCapture.html">Corporates</a></li>
+                                <li><a href="GovernmentCapture.html">Government</a></li>
+                                <li><a href="SpecialCapture.html">Special</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="BuildingProfile.html">Buildings</a></li>
+                                <li><a href="BusinessProfile.html">Businesses</a></li>
+                                <li><a href="VehicleProfile.html">Vehicles</a></li>
+                                <li><a href="LandProfile.html">Lands</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assess<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="AllBills.html">List All</a></li>
+                                <li><a href="UnsettledBills.html">Unsettled</a></li>
+                                <li><a href="SettledBills.html">Settled</a></li>
+                                <li><a href="PartiallySettledBills.html">Partial</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notify<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Individuals</a></li>
+                                <li><a href="#">Corporates</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settle<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="SettleList.html">List All</a></li>
+                                <li><a href="#">Individuals</a></li>
+                                <li><a href="#">Corporates</a></li>
+                                <li><a href="#">Central Billing</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Report.html">List All</a></li>
+                                <li><a href="#">Single View</a></li>
+                                <li><a href="#">Exceptions</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modules<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://eras.eirsautomation.xyz/BPP/BusinessPremisesDashboard.html">Business Premises Permit</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/CNT/ConsumptionTaxDashboard.html">Consumption Tax</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/DAS/DirectAssessmentDashboard.html">Direct Assessment</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/LUC/LandUseDashboard.html">Land Use Charge</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/PBG/PoolsBettingDashboard.html">Pools Betting</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/MPCS/MobilePaymentCollectionDashboard.html">Mobile Payment Collection</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/PAYE/PAYEDashboard.html">PAYE</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/SDT/StampDutyDashboard.html">Stamp Duty</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/VIV/VehicleInsuranceDashboard.html">Vehicle Insurance</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/VLR/VehicleLicenseDashboard.html">Vehicle Licenses</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/WMS/WasteManagementDashboard.html">Waste Management</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/WHT/WithholdingTaxDashboard.html">Withholding Tax</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/MDAS/MDAServicesDashboard.html">MDA Services</a></li>
+                                <li><a href="https://eras.eirsautomation.xyz/CBS/CentralBillingDashboard.html">Central Billing</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">User Management</a></li>
+                                <li><a href="#">Reference Data Management</a></li>
+                                <li><a href="#">Revenue Data Management</a></li>
+                                <li><a href="#">Scratch Card Management</a></li>
+                                <li><a href="#">Managed File Transfers</a></li>
+                                <li><a href="#">API Management</a></li>
+                                <li><a href="#">Systems Settings</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="no-hover hidden p0"><a>Welcome</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">My Profile</a></li>
+                                <li><a href="#">My Modules</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="alternate">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="portlet light compressed-menu">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                ERAS
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#"><i class="fa fa-angle-right"></i> Home</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-angle-right"></i>  Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="Report.html"><i class="fa fa-angle-right"></i>  Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="portlet light compressed-menu">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                TAX PAYERS
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <ul class="nav">
+                                <li>
+                                    <a href="IndividualList.html"><i class="fa fa-angle-right"></i> Individuals</a>
+                                </li>
+                                <li>
+                                    <a href="CorporateList.html"><i class="fa fa-angle-right"></i>  Corporates</a>
+                                </li>
+                                <li>
+                                    <a href="GovernmentList.html"><i class="fa fa-angle-right"></i>  Government</a>
+                                </li>
+                                <li>
+                                    <a href="SpecialList.html"><i class="fa fa-angle-right"></i> Special</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="portlet light compressed-menu">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                ASSETS
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <ul class="nav">
+                                <li>
+                                    <a href="BuildingList.html"><i class="fa fa-angle-right"></i> Buildings</a>
+                                </li>
+                                <li>
+                                    <a href="BusinesseList.html"><i class="fa fa-angle-right"></i>  Businesses</a>
+                                </li>
+                                <li>
+                                    <a href="VehicleList.html"><i class="fa fa-angle-right"></i>  Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="LandList.html"><i class="fa fa-angle-right"></i> Lands</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="portlet light compressed-menu">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                REVENUE DATA
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <ul class="nav">
+                                <li>
+                                    <a href="SideAssessmentBill.html"><i class="fa fa-angle-right"></i> Assessment Bill</a>
+                                </li>
+                                <li>
+                                    <a href="SideServiceBill.html"><i class="fa fa-angle-right"></i>  Service Bill</a>
+                                </li>
+                                <li>
+                                    <a href="SideAssessmentRule.html"><i class="fa fa-angle-right"></i>  Assessment Rules</a>
+                                </li>
+                                <li>
+                                    <a href="SideMDAService.html"><i class="fa fa-angle-right"></i> MDA Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="title">
+                        <h1>
+                            Individual Tax Payer: Add Business
+                        </h1>
+                        <hr>
+                    </div>
+
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                Individual Tax Payer Information
+                            </div>
+                            <div class="actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-redtheme dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Action <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a data-toggle="modal" data-target="#divTaxPayerModal">View Details</a>
+                                        </li>
+                                        <li>
+                                            <a href="IndividualAdd.html">Edit Detail</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row view-form">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label bold">Tax Payer Type: </label>
+                                    <div class="form-control-static">
+                                        Individual
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label bold">Tax Payer TIN: </label>
+                                    <div class="form-control-static">
+                                        TIN
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label bold">Mobile Number: </label>
+                                    <div class="form-control-static">
+                                        Mobile Number
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="control-label bold">Tax Payer Name: </label>
+                                    <div class="form-control-static">
+                                        Name
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label bold">Tax Payer RIN: </label>
+                                    <div class="form-control-static">
+                                        RIN
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label bold">Contact  Address: </label>
+                                    <div class="form-control-static">
+                                        Contact  Address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                Add Business
+                            </div>
+                            <div class="actions">
+                                <a href="IndividualDetail.html" class="btn btn-redtheme"> Cancel </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Asset Type </label>
+                                        <input type="text" disabled class="form-control" placeholder="Business" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Tax Payer Role  </label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Tax Payer Role </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Name </label>
+                                        <input type="text" class="form-control" placeholder="Enter Business Name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Address</label>
+                                        <textarea class="form-control" placeholder="Enter Business Address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Type</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Type </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business LGA</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business LGA </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Buisness Category</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Category </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Sector</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Sector </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Sub Sector</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Sub Sector </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Business Structure</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Structure </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Business Operation</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Operation </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label required-star">Business Size</label>
+                                        <select class="form-control bs-select">
+                                            <option>Select Business Size </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-right col-sm-12">
+                                    <div class="form-group">
+                                        <br />
+                                        <a href="IndividualDetail.html" class="btn-theme btn"> Save </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="divTaxPayerModal" tabindex="-1" role="dialog" aria-labelledby="divTaxPayerModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="divTaxPayerModalLabel">Individual Tax Payer Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Tax Payer Type</label>
+                                <div>Individual</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Gender</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Title</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">First Name</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Last Name</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Middle Name</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Date of Birth</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">TIN</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Phone 1</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Phone 2</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Email Address 1</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Email Address 2</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Biometric Details</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Tax Office</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Marital Status</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Nationality</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Economic Activity</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Preferred Notification</label>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-static bold">Contact Address</label>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="navbar-brand">
+                        <img src="../Content/Images/Logo.png">
+                    </div>
+                </div>
+                <div class="col-sm-7" id="copyright">
+                    © Copyright ERAS - Edo State Internal Revenue Service
+                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>. All rights reserved
+                </div>
+                <div class="col-sm-4">
+                    <ul>
+                        <li>
+                            <a href="#">Data Protection</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Use</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/select2.min.js"></script>
+    <script type="text/javascript" src="js/jsCommon.js"></script>
+    <script type="text/javascript" src="js/jsCustomValidator.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,289 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageNew.master.cs" Inherits="MasterPageNew" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERAS</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.min.css">
+    <link rel="stylesheet" type="text/css" href="css/plugins.min.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+     
+    <asp:ContentPlaceHolder id="head" runat="server">
+       
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="scr" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+    <%--<div>
+        <div id="domMessage" style="display:none;">
+    <h4>We are processing your request. Please be patient.</h4>
+</div>--%>
+<header>
+    <div class="top-bar">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
+                    <img src="images/EIRS-logo.png">
+                    <img src="images/Logo.png">
+                </a>
+            </div>
+            <ul>
+                
+            </ul>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMainMenu" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </div>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-collapse collapse" id="navMainMenu" aria-expanded="false">
+               <div style="text-align:center;color:white;margin-top: 13px;font-size: 22px;"> 
+
+                   <asp:Label ID="lbl_govt" runat="server" Text="SELECT BUSINESS TYPE"   ></asp:Label>
+               </div>
+                
+                        </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+        <!--left menu bar-->
+
+        <section class="alternate" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3" style="visibility:hidden;">
+                <div class="portlet light compressed-menu">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            ERAS
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav">
+                            <li>
+                                <a href="Default.aspx"><i class="fa fa-angle-right"></i> Home</a>
+                            </li>
+                            <li>
+                                <a href="Dashboard.aspx"><i class="fa fa-angle-right"></i>  Dashboard</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-angle-right"></i>  Reports</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="portlet light compressed-menu">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            TAX PAYERS
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav">
+                            <li>
+                                <a href="IndividualList.aspx"><i class="fa fa-angle-right"></i> Individuals</a>
+                            </li>
+                            <li>
+                                <a href="Corporates.aspx"><i class="fa fa-angle-right"></i>  Corporates</a>
+                            </li>
+                            <li>
+                                <a href="error.html"><i class="fa fa-angle-right"></i>  Government</a>
+                            </li>
+                            <li>
+                                <a href="error.html"><i class="fa fa-angle-right"></i> Special</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="portlet light compressed-menu">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            ASSETS
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav">
+                            <li>
+                                <a href="error.html"><i class="fa fa-angle-right"></i> Buildings</a>
+                            </li>
+                            <li>
+                                <a href="BusinessLists.aspx"><i class="fa fa-angle-right"></i>  Businesses</a>
+                            </li>
+                            <li>
+                                <a href="error.html"><i class="fa fa-angle-right"></i>  Vehicles</a>
+                            </li>
+                            <li>
+                                <a href="error.html"><i class="fa fa-angle-right"></i> Lands</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="portlet light compressed-menu">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            LIST OF REVENUE DATA
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav">
+                            <li>
+                                <a href="Profiles.aspx"><i class="fa fa-angle-right"></i> Profiles</a>
+                            </li>
+                            <li>
+                                <a href="AssessmentRules.aspx"><i class="fa fa-angle-right"></i>  Assessment Rules</a>
+                            </li>
+                            <li>
+                                <a href="Assessmentitems.aspx"><i class="fa fa-angle-right"></i> Assessment Items</a>
+                            </li>
+                            <li>
+                                <a href="AssessmentList.aspx"><i class="fa fa-angle-right"></i> Assessments</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="portlet light compressed-menu">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            REVENUE MANAGEMENT
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav">
+                            <li>
+                                <a href="RulesCheck.aspx"><i class="fa fa-angle-right"></i> Rules Check</a>
+                            </li>
+                           
+
+                            <li style="display:none;">
+                                <a href="PayeSubmissions.aspx"><i class="fa fa-angle-right"></i> Legacy Submissions</a>
+                                <ul  class="nav" style="padding-left:15px;">
+                                    <li><a href="PayeInputFile.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Paye Input File</a></li>
+                                    <li><a href="PayeOutputFile.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Paye Output File</a></li>
+                                    <li><a href="EmployeeContributionOutput.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Employee Contribution Output File</a></li>
+                                    <li><a href="EmployerContributionOutput.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Employer Contribution Output File</a></li>
+
+                                </ul>
+                            </li>
+                                    <li><a href="PayeInputFile_N.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Paye Input File</a></li>
+                            
+                                    <li><a href="PayeCoding.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Paye Coding</a></li>
+                            
+                                    <li><a href="PayeOutputFile_N.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Paye Output File</a></li>
+                             <li><a href="EmployeeContributionOutput.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Employee Contribution</a></li>
+                                    <li><a href="EmployerContributionOutput.aspx" style="color:black;"><i class="fa fa-angle-right"></i>Employer Collection</a></li>
+                                                        <li>
+                                <a href="Submission_N.aspx"><i class="fa fa-angle-right"></i>  Submissions</a>
+                            </li>
+
+                                                        <li>
+                                <a href="TaxBaseComputation_N.aspx"><i class="fa fa-angle-right"></i>  Tax Base Amount</a>
+                            </li>
+
+                                                        <li>
+                                <a href="PreAssessment_N.aspx"><i class="fa fa-angle-right"></i>  Pre Assessment</a>
+                            </li>
+
+                                    <li>
+                                <a href="AssessmentQueue_N.aspx"><i class="fa fa-angle-right"></i>  Assessment Queue</a>
+                            </li>
+
+                             <li style="display:none;">
+                                <a href="generatePAYE.aspx"><i class="fa fa-angle-right"></i>Generate PAYE</a>
+                            </li>
+                            
+                            <li>
+                                <a href="Registration.aspx"><i class="fa fa-angle-right"></i> Other Functions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+           
+
+            <!--end left menu bar-->
+            <div class="col-sm-9">
+                <div class="title">
+                    <h1>
+                <asp:ContentPlaceHolder ID="contentheading" runat="server">
+
+                </asp:ContentPlaceHolder>
+                        
+                    </div>
+                <div class="portlet light" style="background-color:#f9f9f9;">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+                </div>
+                    </section>
+        <asp:ContentPlaceHolder ID="modelpops" runat="server"></asp:ContentPlaceHolder>
+            <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="navbar-brand">
+                    <img src="images/Logo.png">
+                </div>
+            </div>
+            <div class="col-sm-7" id="copyright">
+                © Copyright ERAS - Edo State Internal Revenue Service   <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>. All rights reserved
+            </div>
+            <div class="col-sm-4">
+                <ul>
+                    <li>
+                        <a href="">Data Protection</a>
+                    </li>
+                    <li>
+                        <a href="">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+        <link rel="Stylesheet" href="js/jquery/1.8/jquery-ui.css" />  
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery.unobtrusive-ajax.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/jsCommon.js"></script>
+         
+         <script src="js/jquery/1.8/jquery-ui.min.js"></script>  
+         
+   
+</body>
+</html>
+    </div>
+    </form>
+</body>
+</html>
+
