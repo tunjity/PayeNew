@@ -123,7 +123,7 @@ public partial class MyProfile : System.Web.UI.Page
             txt_lname.Text = dt.Rows[0]["LastName"].ToString();
             txt_phn.Text = dt.Rows[0]["Phone"].ToString();
             txt_email.Text = dt.Rows[0]["Email"].ToString();
-            TextBox1.Text = dt.Rows[0]["Password"].ToString();
+            txt_password.Text = dt.Rows[0]["Password"].ToString();
             //txt_entityid.Text = dtuser.Rows[0]["EntityId"].ToString();
             //txt_mobileno.Text = dtuser.Rows[0]["mobile_no"].ToString();
             //drp_gender.SelectedValue = dtuser.Rows[0]["gender"].ToString();
