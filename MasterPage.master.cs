@@ -21,6 +21,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             username.Text = Session["username"].ToString();
+            //if (Session["roleId"].ToString() == "1")
+            //{
+            //    Panel panel = (Panel)Master.FindControl("fitHid");
+            //    panel.Visible = false;
+            //}
         }
     }
     protected void onLastRecord(object sender, EventArgs e)

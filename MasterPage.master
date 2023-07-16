@@ -300,16 +300,18 @@
                             </div>
                             <div class="portlet-body">
                                 <ul class="nav">
-                                    <li>
+                                    <li class='<%= Session["roleId"].ToString() == "4" ? "show" : "hide" %>'>
                                         <a href="error.html"><i class="fa fa-angle-right"></i>Buildings</a>
                                     </li>
                                     <li>
                                         <a href="BusinessLists.aspx"><i class="fa fa-angle-right"></i>Businesses</a>
                                     </li>
-                                    <li>
+                                    
+                                    <li class='<%= Session["roleId"].ToString() == "4" ? "show" : "hide" %>'>
                                         <a href="error.html"><i class="fa fa-angle-right"></i>Vehicles</a>
                                     </li>
-                                    <li>
+                                    
+                                    <li class='<%= Session["roleId"].ToString() == "4" ? "show" : "hide" %>'>
                                         <a href="error.html"><i class="fa fa-angle-right"></i>Lands</a>
                                     </li>
                                 </ul>
@@ -348,7 +350,8 @@
                             </div>
                             <div class="portlet-body">
                                 <ul class="nav">
-                                    <li>
+                                    
+                                    <li class='<%= Session["roleId"].ToString() != "3" ? "show" : "hide" %>'>
                                         <a href="RulesCheck.aspx"><i class="fa fa-angle-right"></i>Rules Check</a>
                                     </li>
 
@@ -370,11 +373,13 @@
                                     <li><a href="PayeOutputFile_N.aspx" style="color: black;"><i class="fa fa-angle-right"></i>Paye Output File</a></li>
                                     <li><a href="EmployeeContributionOutput.aspx" style="color: black;"><i class="fa fa-angle-right"></i>Employee Contribution</a></li>
                                     <li><a href="EmployerContributionOutput.aspx" style="color: black;"><i class="fa fa-angle-right"></i>Employer Collection</a></li>
-                                    <li>
+                                    
+                                    <li class='<%= Session["roleId"].ToString() == "3" ? "show" : "hide" %>'>
                                         <a href="Submission_N.aspx"><i class="fa fa-angle-right"></i>Submissions</a>
                                     </li>
 
-                                    <li>
+                                    
+                                    <li class='<%= Session["roleId"].ToString() == "3" ? "show" : "hide" %>'>
                                         <a href="TaxBaseComputation_N.aspx"><i class="fa fa-angle-right"></i>Tax Base Amount</a>
                                     </li>
 

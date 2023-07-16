@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="PayeInputFile.aspx.cs" Inherits="PayeInputFile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="UserManagement.aspx.cs" Inherits="UserManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
@@ -14,13 +14,32 @@
             display: none;
         }
     </style>
+    
+    <script type="text/javascript">
+    function Confirm_drop_emps() {
 
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Are You Sure You Want to This User InActive?")) {
+                confirm_value.value = "";
+                confirm_value.value = "Yes";
+                document.getElementById('<%= hidden1.ClientID %>').value = "Yes";
+                showImage();
+            } else {
+                confirm_value.value = "";
+                confirm_value.value = "No";
+                document.getElementById('<%= hidden1.ClientID %>').value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-   <%-- <script type="text/javascript">
+    <%-- <script type="text/javascript">
         function gf() {
             $(function () {
-                var gridId = "<%= grd_user_management_check.ClientID %>";
+                var gridId = "<%= grd_user_management.ClientID %>";
                 var rowClickEvent = "#" + gridId + " tr"
                 var current = "";
 
@@ -51,26 +70,55 @@
     </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentheading" runat="Server">
-    Assessment - Input File
+    User Management
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <div class="portlet light">
         <div class="portlet-title">
-            <div class="caption">Input File</div>
-
+            <div class="caption">Users</div>
+            <div class="actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-redtheme dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Add New <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="UserAdd.aspx">User</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
         </div>
         <div style="overflow: scroll;">
-            <asp:GridView ID="grd_user_management_check" runat="server" AllowPaging="True" AllowSorting="True" PageSize="10" PagerSettings-PageButtonCount="5"
+            <%--<asp:GridView ID="grd_user_management" runat="server" AllowPaging="True" AllowSorting="True" PageSize="10" PagerSettings-PageButtonCount="5"
+                AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-striped table-bordered table-hover" HeaderStyle-CssClass="GridHeader" ShowFooter="false">
+            --%>
+            <asp:GridView ID="grd_user_management" runat="server" AllowPaging="True" AllowSorting="True" PageSize="10" PagerSettings-PageButtonCount="5"
                 AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-striped table-bordered table-hover" HeaderStyle-CssClass="GridHeader" ShowFooter="false">
 
-
                 <Columns>
-
-                    <asp:BoundField DataField="BusinessName" HeaderText="Full Name" />
-                    <asp:BoundField DataField="ContactAddress" HeaderText="Email Address" />
-                    <asp:BoundField DataField="BusinessRIN" HeaderText="Phone Number" />
-                    <asp:BoundField DataField="TaxMonth" HeaderText="Role" />
+                    <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                    <asp:BoundField DataField="Email" HeaderText="Email Address" />
+                    <asp:BoundField DataField="Phone" HeaderText="Phone Number" />
+                    <asp:BoundField DataField="Role" HeaderText="Role" />
+                    <asp:BoundField DataField="IsActive" HeaderText="Status" />
+                    <asp:TemplateField HeaderText="Actions">
+                        <ItemTemplate>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-theme btn-xs md-skip dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Action <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                         <asp:LinkButton runat="server" ID="make_user_inactive" OnClick="btn_make_user_inactive_Click" OnClientClick="Confirm_drop_emp()"> Make User InActive </asp:LinkButton>
+                                       <%-- <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmpInput.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=I&Employer="+Eval("CompanyName")+"&BusinessRIN="+Eval("BusinessRIN")+"&FiledStatus="+Eval("Status")+""%>' runat="server" ID="lnkDetails"> Manage Employees </asp:LinkButton>--%>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
 
 
@@ -78,7 +126,8 @@
                 <PagerStyle CssClass="pagination-ys" HorizontalAlign="Right" />
 
             </asp:GridView>
-
+            
+                    <input type="hidden" runat="server" value="" id="hidden1" />
             <div style="margin-top: -60px; margin-left: 10px;" id="div_paging" runat="server">
                 Showing
                         <asp:Label runat="server" ID="lblpagefrom"></asp:Label>

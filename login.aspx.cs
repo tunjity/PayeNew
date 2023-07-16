@@ -19,7 +19,7 @@ public partial class login : System.Web.UI.Page
     protected void btnlogin_Click(object sender, EventArgs e)
     {
         string access_token = PAYEClass.getToken();
-        string loginqry = "Select * from Eirs_user where user_name=@a and password=@b";
+        string loginqry = "Select * from AdminUser where Username=@a and Password=@b";
         SqlConnection con = new SqlConnection(PAYEClass.connection);
         SqlCommand cmd = new SqlCommand(loginqry, con);
         cmd.Parameters.AddWithValue("@a", txtusername.Text.ToString().Trim());
@@ -33,8 +33,9 @@ public partial class login : System.Web.UI.Page
         if (dt.Rows.Count > 0)
         {
             Session["token"] = access_token;
-            Session["user_id"] = dt.Rows[0]["user_id"].ToString();
-            Session["username"] = dt.Rows[0]["user_name"].ToString();
+            Session["user_id"] = dt.Rows[0]["AdminUserId"].ToString();
+            Session["username"] = dt.Rows[0]["Username"].ToString();
+            Session["roleId"] = dt.Rows[0]["RoleId"].ToString();
 
             Response.Redirect("dashboard.aspx");
         }
