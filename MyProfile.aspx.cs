@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Text;
+using System.Web.UI;
 
 public partial class MyProfile : System.Web.UI.Page
 {
@@ -153,29 +154,26 @@ public partial class MyProfile : System.Web.UI.Page
     }
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        //txt_dob.Visible = true;
-        //string startDate = txt_dob.Text;
+        string id = Session["user_id"].ToString();
+        SqlConnection con = new SqlConnection(PAYEClass.connection.ToString());
 
-        //HtmlContainerControl modalinfo = this.Page.FindControl("modalinfo") as HtmlContainerControl;
-        //Label lblmodalbody = this.Page.FindControl("lblmodalbody") as Label;
-        //string securedPIN = CreateMD5(txt_secured_pin.Text.ToString());
+        string password = txt_new_password.Text.ToString().Trim();
+        try
+        {
+            string q1 = "update AdminUser set Password =@Password WHERE A.AdminUserId ='" + id + "'  ";
+            SqlCommand cmd2 = new SqlCommand(q1, con);
+            cmd2.Parameters.AddWithValue("@Password", password);
+            cmd2.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('User Updated Successfully');</script>", false);
 
-        //System.Globalization.CultureInfo provider = System.Globalization.CultureInfo.InvariantCulture;
-        //string qry = "Update oyo_Registration set lga_id='" + lgaList.SelectedValue.ToString().Trim() + "', " +
-        //    "beat_code='" + beatCode.Text.ToString() + "'," + "dob='" + DateTime.ParseExact(txt_dob.Text.ToString(), "yyyy-MM-dd", provider) + "',modified_by='" + Session["user_id"] + "', address='" + txt_address.Text.Trim() + "',email='" + txt_email.Text.Trim() + "',mpin='" + securedPIN + "',type_code='" + txt_DesignationDropDown.SelectedValue.ToString().Trim() + "' where id='" + drpusername.SelectedValue.ToString().Trim() + "'";
-        //int status = OYOClass.insertupdateordelete(qry);
-        //if (status > 0)
-        //{
-        //    string script = "alert('User updated Successfully!! (" + status + ")');";
-        //    ScriptManager.RegisterStartupScript(this, this.GetType(), "successAlert", script, true);
-        //    return;
-        //}
-        //else
-        //{
-        //    string script = "alert('User updated Not Successf!! (" + status + ")');";
-        //    ScriptManager.RegisterStartupScript(this, this.GetType(), "successAlert", script, true);
-        //    return;
-
-        //}
+        }
+        catch (Exception ex)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "hideImage()", true);
+            con.Close();
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('Unable To Update user');</script>", false);
+            return;
+        }
     }
 }

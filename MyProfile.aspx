@@ -44,8 +44,8 @@
                     <asp:Label ID="lbl_new_password" runat="server" Text="New Password"></asp:Label>
                     <asp:TextBox runat="server" ID="txt_new_password" placeholder="Enter New Password" CssClass="form-control" required></asp:TextBox>
 
-                    <asp:Label ID="lbl_con_password" runat="server" Text="Confirm Password""></asp:Label>
-                    <asp:TextBox runat="server" ID="txt_con_password" placeholder="Enter Confirm Password" CssClass="form-control" required></asp:TextBox>
+                  <%--  <asp:Label ID="lbl_con_password" runat="server" Text="Confirm Password""></asp:Label>
+                    <asp:TextBox runat="server" ID="txt_con_password" placeholder="Enter Confirm Password" CssClass="form-control" required></asp:TextBox>--%>
 
                 </div>
             </div>
