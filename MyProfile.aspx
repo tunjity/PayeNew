@@ -16,15 +16,11 @@
     User Management
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
     <div class="col-md-5">
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Edit User</h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-
             <div class="box-body">
                 <div class="form-group">
 
@@ -44,19 +40,16 @@
                     <asp:Label ID="lbl_new_password" runat="server" Text="New Password"></asp:Label>
                     <asp:TextBox runat="server" ID="txt_new_password" placeholder="Enter New Password" CssClass="form-control" required></asp:TextBox>
 
-                  <%--  <asp:Label ID="lbl_con_password" runat="server" Text="Confirm Password""></asp:Label>
-                    <asp:TextBox runat="server" ID="txt_con_password" placeholder="Enter Confirm Password" CssClass="form-control" required></asp:TextBox>--%>
+                    <asp:Label ID="lbl_con_password" runat="server" Text="Confirm Password"></asp:Label>
+                    <asp:TextBox runat="server" ID="txt_con_password" placeholder="Enter Confirm Password" CssClass="form-control" required></asp:TextBox>
 
                 </div>
             </div>
-            <!-- /.box-body -->
-
         </div>
     </div>
    
     <div class="col-md-10" align="center">
         <asp:Button runat="server" CssClass="btn btn-primary" Text="Update" ID="btnUpdate" OnClick="btnUpdate_Click" />
     </div>
-    script>
 </asp:Content>
 

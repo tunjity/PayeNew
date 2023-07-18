@@ -14,9 +14,9 @@
             display: none;
         }
     </style>
-    
+
     <script type="text/javascript">
-    function Confirm_drop_emps() {
+        function Confirm_drop_emps() {
 
             var confirm_value = document.createElement("INPUT");
             confirm_value.type = "hidden";
@@ -78,17 +78,17 @@
         <div class="portlet-title">
             <div class="caption">Users</div>
             <div class="actions">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-redtheme dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Add New <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="UserAdd.aspx">User</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-redtheme dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Add New <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="UserAdd.aspx">User</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div style="overflow: scroll;">
             <%--<asp:GridView ID="grd_user_management" runat="server" AllowPaging="True" AllowSorting="True" PageSize="10" PagerSettings-PageButtonCount="5"
@@ -111,10 +111,13 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                         <asp:LinkButton runat="server" ID="make_user_inactive" OnClick="btn_make_user_inactive_Click" OnClientClick="Confirm_drop_emp()"> Make User InActive </asp:LinkButton>
-                                       <%-- <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmpInput.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=I&Employer="+Eval("CompanyName")+"&BusinessRIN="+Eval("BusinessRIN")+"&FiledStatus="+Eval("Status")+""%>' runat="server" ID="lnkDetails"> Manage Employees </asp:LinkButton>--%>
+                                        <asp:LinkButton runat="server" ID="make_user_inactive" OnClick="btn_make_user_inactive_Click" OnClientClick="Confirm_drop_emp()"> Make User InActive/Active </asp:LinkButton>
+                                        <%-- <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmpInput.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=I&Employer="+Eval("CompanyName")+"&BusinessRIN="+Eval("BusinessRIN")+"&FiledStatus="+Eval("Status")+""%>' runat="server" ID="lnkDetails"> Manage Employees </asp:LinkButton>--%>
                                     </li>
-                                   
+                                    <li>
+                                        <asp:LinkButton PostBackUrl='<%#"~/MyProfile.aspx?emailEMP="+Eval("Email")+""%>' runat="server" ID="lnkEdit"> Edit User </asp:LinkButton>
+                                    </li>
+
                                 </ul>
                             </div>
                         </ItemTemplate>
@@ -126,8 +129,8 @@
                 <PagerStyle CssClass="pagination-ys" HorizontalAlign="Right" />
 
             </asp:GridView>
-            
-                    <input type="hidden" runat="server" value="" id="hidden1" />
+
+            <input type="hidden" runat="server" value="" id="hidden1" />
             <div style="margin-top: -60px; margin-left: 10px;" id="div_paging" runat="server">
                 Showing
                         <asp:Label runat="server" ID="lblpagefrom"></asp:Label>

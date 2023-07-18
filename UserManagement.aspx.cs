@@ -17,28 +17,37 @@ public partial class UserManagement : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            DataTable dt_list = new DataTable();
-
-            SqlDataAdapter Adp = new SqlDataAdapter("SELECT  [AdminUserId],P.UserType,R.Role,[Password],[Username],[Email],[FirstName] + ' ' +[LastName] as FullName,IsActive,[Designation],[Phone]  FROM [AdminUser] A  LEFT JOIN PayeRole R on A.RoleId = R.RoleId  LEFT JOIN PayeUserType P on A.PayeUserTypeId = P.UserTypeId", con);
-            Adp.SelectCommand.CommandTimeout = PAYEClass.defaultTimeout;
-            Adp.Fill(dt_list);
-            Session["dt_l"] = dt_list;
-            grd_user_management.DataSource = dt_list;
-            grd_user_management.DataBind();
-
-            int pagesize = grd_user_management.Rows.Count;
-            int from_pg = 1;
-            int to = grd_user_management.Rows.Count;
-            int totalcount = dt_list.Rows.Count;
-            lblpagefrom.Text = from_pg.ToString();
-            lblpageto.Text = (from_pg + pagesize - 1).ToString();
-            lbltoal.Text = totalcount.ToString();
-
-            if (totalcount < grd_user_management.PageSize)
-                div_paging.Style.Add("margin-top", "0px");
-            else
-                div_paging.Style.Add("margin-top", "-60px");
+            if (Session["user_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            getAll();
         }
+    }
+
+    protected void getAll()
+    {
+        DataTable dt_list = new DataTable();
+
+        SqlDataAdapter Adp = new SqlDataAdapter("SELECT  [AdminUserId],P.UserType,R.Role,[Password],[Username],[Email],[FirstName] + ' ' +[LastName] as FullName,IsActive,[Designation],[Phone]  FROM [AdminUser] A  LEFT JOIN PayeRole R on A.RoleId = R.RoleId  LEFT JOIN PayeUserType P on A.PayeUserTypeId = P.UserTypeId", con);
+        Adp.SelectCommand.CommandTimeout = PAYEClass.defaultTimeout;
+        Adp.Fill(dt_list);
+        Session["dt_l"] = dt_list;
+        grd_user_management.DataSource = dt_list;
+        grd_user_management.DataBind();
+
+        int pagesize = grd_user_management.Rows.Count;
+        int from_pg = 1;
+        int to = grd_user_management.Rows.Count;
+        int totalcount = dt_list.Rows.Count;
+        lblpagefrom.Text = from_pg.ToString();
+        lblpageto.Text = (from_pg + pagesize - 1).ToString();
+        lbltoal.Text = totalcount.ToString();
+
+        if (totalcount < grd_user_management.PageSize)
+            div_paging.Style.Add("margin-top", "0px");
+        else
+            div_paging.Style.Add("margin-top", "-60px");
     }
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -64,18 +73,26 @@ public partial class UserManagement : System.Web.UI.Page
 
     protected void btn_make_user_inactive_Click(object sender, EventArgs e)
     {
+        string id = "";
         GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;
         string email = grd_user_management.Rows[clickedRow.RowIndex].Cells[1].Text.ToString();
+        string neid = grd_user_management.Rows[clickedRow.RowIndex].Cells[4].Text.ToString();
         SqlConnection con = new SqlConnection(PAYEClass.connection.ToString());
+        if (neid == "0")
+            id = "1";
+        if (neid == "1")
+            id = "0";
 
         try
         {
-            SqlCommand q1 = new SqlCommand("update AdminUser set IsActive = 0 where Email ='" + email + "'", con);
+            SqlCommand q1 = new SqlCommand("update AdminUser set IsActive = '" + id + "' where Email ='" + email + "'", con);
             con.Open();
             q1.ExecuteNonQuery();
-            con.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('User Made InActive Successfully');</script>", false);
-
+            con.Close(); 
+            getAll();
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('User Made InActive Successfully');</script>", false);
+           
+            return;
         }
         catch (Exception ex)
         {

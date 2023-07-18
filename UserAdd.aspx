@@ -74,8 +74,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="control-label required-star">Role </label>
-                        <asp:DropDownList runat="server" CssClass="form-control bs-select" ID="drptitle">
-                            <asp:ListItem  Text="Select Role"></asp:ListItem>
+                        <asp:DropDownList ID="drptitle" runat="server" CssClass="form-control" >
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -98,7 +97,7 @@
             <div class="row">
                 <div class="text-right col-sm-6">
                     <div class="form-group">
-                        <asp:Button ID="btnsaveindividual" Style="color: white;" CssClass="button" runat="server" Text="Save" OnClick="btn_add_user_Click" />
+                        <asp:Button ID="btnsaveindividual" Style="color: darkgreen;" CssClass="button" runat="server" Text="Save" OnClick="btn_add_user_Click" />
                         <%--             <asp:Button runat="server" ID="btnsaveindividual"OnClick="btn_add_user_Click" CssClass="btn-theme btn" Text="Save" />--%>
                     </div>
                 </div>

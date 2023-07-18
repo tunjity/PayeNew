@@ -13,7 +13,10 @@ public partial class UserAdd : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        binddropdown();
+        if (!IsPostBack)
+        {
+            binddropdown();
+        }
     }
 
     public void binddropdown()
@@ -42,7 +45,7 @@ public partial class UserAdd : System.Web.UI.Page
         string phone = txtphone1.Text.ToString().Trim();
         string password = txtpassword.Text.ToString().Trim();
         string passwor1d = txtpassword2.Text.ToString().Trim();
-        string roleId = drptitle.SelectedValue.ToString();
+        string roleId = drptitle.SelectedItem.Value.Trim();
         if (password != passwor1d)
         {
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('Password and Confirm Password Not Same.');</script>", false);
