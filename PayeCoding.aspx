@@ -158,10 +158,10 @@
                                             <li>
                                                 <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmpInput.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&BusinessRIN="+Eval("BusinessRIN")+"&redirect=C&Employer="+Eval("CompanyName")+""%>' runat="server" ID="lnkDetails"> View Details </asp:LinkButton>
                                             </li>
-                                            <li>
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                                 <asp:LinkButton runat="server" ID="lnksendtoinputfile" OnClick="btn_file_selected_Click" OnClientClick="Confirm()"> Code File </asp:LinkButton>
                                             </li>
-                                            <li>
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                                 <asp:LinkButton runat="server" ID="lnk_reverse_Input" OnClick="btn_file_reverse_Click" OnClientClick="Confirm_reverse()" CommandName="Select"> Reverse to PAYE Input File </asp:LinkButton>
                                             </li>
                                         </ul>

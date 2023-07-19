@@ -184,14 +184,17 @@
                                             Action <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li>
+                                            
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                                 <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmpInput.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=I&Employer="+Eval("CompanyName")+"&BusinessRIN="+Eval("BusinessRIN")+"&FiledStatus="+Eval("Status")+""%>' runat="server" ID="lnkDetails"> Manage Employees </asp:LinkButton>
                                             </li>
-                                            <li>
+                                            
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                                 <asp:LinkButton runat="server" ID="lnksendtoinputfile" OnClick="btn_file_selected_Click" OnClientClick="Confirm()"> Submit Filing </asp:LinkButton>
                                             </li>
 
-                                            <li>
+                                           
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                                 <asp:LinkButton runat="server" ID="lnk_drop_employees" OnClick="btn_drop_employees_Click" OnClientClick="Confirm_drop_emps()"> Drop Employees </asp:LinkButton>
                                             </li>
                                         </ul>

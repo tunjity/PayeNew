@@ -134,11 +134,16 @@
         <div class="actions">
             .
             <div class="btn-group">
-                <asp:LinkButton runat="server" ID="lnk_Pull_Assets" CssClass="btn btn-theme" OnClientClick="startUpdate();">Update </asp:LinkButton>
 
+                <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
+                    <asp:LinkButton runat="server" ID="lnk_Pull_Assets" CssClass="btn btn-theme" OnClientClick="startUpdate();">Update </asp:LinkButton>
+                </li>
             </div>
             <div class="btn-group">
-                <asp:Button runat="server" ID="btnAdd" CssClass="btn btn-redtheme" Text="Send to RDM" OnClick="btnAdd_Click" />
+
+                <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
+                    <asp:Button runat="server" ID="btnAdd" CssClass="btn btn-redtheme" Text="Send to RDM" OnClick="btnAdd_Click" />
+                </li>
             </div>
         </div>
         <br />
@@ -147,7 +152,7 @@
     </div>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <contenttemplate>
+        <ContentTemplate>
 
             <div id="divmsg" class="" runat="server" style="display: none"></div>
 
@@ -213,7 +218,7 @@
                                 AutoGenerateColumns="False" PagerSettings-PageButtonCount="5"
                                 CssClass="table table-striped table-bordered table-hover" HeaderStyle-CssClass="GridHeader" OnPageIndexChanging="grdempcollection_PageIndexChanging" OnRowDataBound="grdempcollection_RowDataBound">
 
-                                <columns>
+                                <Columns>
                                     <asp:BoundField DataField="TaxPayerTypeId" HeaderText="TaxPayerTypeId" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                     <asp:BoundField DataField="TaxPayerID" HeaderText="TaxPayerId" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                     <asp:BoundField DataField="AssetTypeId" HeaderText="AssetTypeId" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
@@ -235,23 +240,25 @@
 
                                     <asp:BoundField DataField="TaxBaseAmount" HeaderText="Assessed Amount" />
                                     <asp:TemplateField HeaderText="Send to RDM">
-                                        <itemtemplate>
+                                        <ItemTemplate>
                                             <%--<asp:CheckBox runat="server" ID="chkrdm" onclick="CheckOne(this)"/>--%>
-
+                                            
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                             <asp:CheckBox runat="server" ID="chkrdm" />
                                             <asp:Label ID="lbl_status" runat="server"></asp:Label>
-                                        </itemtemplate>
+                                                </li>
+                                        </ItemTemplate>
                                     </asp:TemplateField>
-                                </columns>
+                                </Columns>
 
-                                <pagerstyle cssclass="pagination-ys" horizontalalign="Right" />
+                                <PagerStyle CssClass="pagination-ys" HorizontalAlign="Right" />
 
                             </asp:GridView>
                         </td>
                     </tr>
                 </table>
             </div>
-        </contenttemplate>
+        </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="modelpops" runat="Server">
