@@ -78,22 +78,22 @@
                     <table class="table borderless" style="width: 100% !important; border: none !important;">
                         <tr>
                             <td>Tax Year:</td>
-                           
+
                             <td>
                                 <asp:DropDownList ID="txt_tax_year" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="btn_search_Click"></asp:DropDownList></td>
                             <td>Company RIN:</td>
-                            
+
                             <td>
                                 <asp:TextBox ID="txt_cmp_RIN" runat="server" CssClass="form-control" placeholder="Company RIN"></asp:TextBox>
 
                             </td>
                             <td>Business RIN:</td>
-                           
+
                             <td>
                                 <asp:TextBox ID="txt_employer_RIN" runat="server" CssClass="form-control" placeholder="Business RIN"></asp:TextBox>
 
                             </td>
-                           
+
                             <td colspan="3" style="text-align: right;">
                                 <asp:Button ID="btn_search" Text="Search" runat="server" CssClass="btn btn-theme" OnClick="btn_search_Click" Visible="true" />
 
@@ -147,12 +147,17 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
+
                                                 <asp:LinkButton PostBackUrl='<%#"~/ShowLegacyDataEmp.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=O&Employer="+Eval("CompanyName")+""%>' runat="server" ID="lnkDetails"> View Output File </asp:LinkButton>
                                                 <asp:LinkButton PostBackUrl='<%#"~/TaxAnalysis_N.aspx?compRIN="+Eval("CompanyRIN")+"&year="+Eval("Tax_Year")+"&redirect=O&Employer="+Eval("CompanyName")+""%>' runat="server" ID="lnkTaxAnalysis"> Generate Tax Analysis </asp:LinkButton>
 
-                                                <asp:LinkButton runat="server" ID="lnk_reverse_Input" OnClick="btn_file_reverse_Click" OnClientClick="Confirm_reverse()"> Reverse to PAYE Input File </asp:LinkButton>
-                                                <asp:LinkButton runat="server" ID="lnk_save_InputOutput" OnClick="btn_Save_Input_Ouput_Click"> Save Input and Ouput Files </asp:LinkButton>
+                                                <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
+                                                    <asp:LinkButton runat="server" ID="lnk_reverse_Input" OnClick="btn_file_reverse_Click" OnClientClick="Confirm_reverse()"> Reverse to PAYE Input File </asp:LinkButton>
+                                                </li>
 
+                                                <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
+                                                    <asp:LinkButton runat="server" ID="lnk_save_InputOutput" OnClick="btn_Save_Input_Ouput_Click"> Save Input and Ouput Files </asp:LinkButton>
+                                                </li>
                                             </li>
 
                                         </ul>

@@ -116,15 +116,15 @@ public partial class ShowLegacyDataEmpInput : System.Web.UI.Page
 
             LinkButton lbtn = (LinkButton)e.Row.FindControl("lnkDetails");
             LinkButton lbtn_drop_emp = (LinkButton)e.Row.FindControl("lnk_drop_employee");
-            string k = Session["FiledStatus"].ToString();
-            if ( k.ToLower()== "Unfiled".ToLower())
-            {
-                lbtn_drop_emp.Visible = true;
-            }
-            else
-            {
-                lbtn_drop_emp.Visible = false;
-            }
+            //string k = Session["FiledStatus"].ToString();
+            //if ( k.ToLower()== "Unfiled".ToLower())
+            //{
+            //    lbtn_drop_emp.Visible = true;
+            //}
+            //else
+            //{
+            //    lbtn_drop_emp.Visible = false;
+            //}
 
             if (Convert.ToString(Session["EditEMPFlag"]) == "1")
             {

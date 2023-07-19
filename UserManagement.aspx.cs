@@ -90,7 +90,7 @@ public partial class UserManagement : System.Web.UI.Page
             q1.ExecuteNonQuery();
             con.Close(); 
             getAll();
-            ScriptManager.RegisterStartupScript(Page, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('User Made InActive Successfully');</script>", false);
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "AlertMessage", "<script language=\"javascript\"  type=\"text/javascript\">;alert('User Status Changed Successfully');</script>", false);
            
             return;
         }
