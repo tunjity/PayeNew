@@ -19,9 +19,6 @@ z-index: 10000;
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     
     <script type="text/javascript">
-
-       
-
         function gf() {
             $(document).ready(function () {
                
@@ -58,6 +55,44 @@ z-index: 10000;
         }
        
     </script>
+         <script>
+             document.addEventListener('DOMContentLoaded', function () {
+                 var addInd = document.getElementById('addInd');
+                 var addIndId = document.getElementById('addIndId');
+                 var addCorp = document.getElementById('addCorp');
+                 var addCorpId = document.getElementById('addCorpId');
+                 var addGov = document.getElementById('addGov');
+                 var addGovId = document.getElementById('addGovId');
+                 var addSpe = document.getElementById('addSpe');
+                 var addSpeId = document.getElementById('addSpeId');
+
+                 addInd.addEventListener('click', function (e) {
+                     if (!addIndId.style.display || addIndId.style.display === 'block') {
+                         e.preventDefault();
+                     }
+                 });
+
+
+                 addCorp.addEventListener('click', function (e) {
+                     if (!addCorpId.style.display || addCorpId.style.display === 'block') {
+                         e.preventDefault();
+                     }
+                 });
+
+                 addGov.addEventListener('click', function (e) {
+                     if (!addGovId.style.display || addGovId.style.display === 'block') {
+                         e.preventDefault();
+                     }
+                 });
+
+                 addSpe.addEventListener('click', function (e) {
+                     if (!addSpeId.style.display || addSpeId.style.display === 'block') {
+                         e.preventDefault();
+                     }
+                 });
+             });
+
+         </script>
 
 </asp:Content>
 <asp:Content ID="content3" runat="server" ContentPlaceHolderID="contentheading">
@@ -104,17 +139,17 @@ z-index: 10000;
                                         Add New <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="IndividualAdd.aspx">Individual</a>
+                                        <li id="addIndId" runat="server">
+                                            <a href="IndividualAdd.aspx" id="addInd">Individual</a>
                                         </li>
-                                        <li>
-                                            <a href="CorporateAdd.aspx">Corporates</a>
+                                        <li  id="addCorpId" runat="server">
+                                            <a href="CorporateAdd.aspx" id="addCorp">Corporates</a>
                                         </li>
-                                        <li>
-                                            <a href="GovernmentAdd.aspx">Government</a>
+                                        <li id="addGovId" runat="server">
+                                            <a href="GovernmentAdd.aspx" id="addGov">Government</a>
                                         </li>
-                                        <li>
-                                            <a href="SpecialAdd.aspx">Special</a>
+                                        <li id="addSpeId" runat="server">
+                                            <a href="SpecialAdd.aspx" id="addSpe">Special</a>
                                         </li>
                                     </ul>
                                 </div>

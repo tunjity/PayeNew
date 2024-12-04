@@ -153,7 +153,7 @@ z-index: 10000;
                                         Add New <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li>
+                                            <li class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'>
                                             <a href="AddAsset.aspx">Asset</a>
                                         </li>
                                         

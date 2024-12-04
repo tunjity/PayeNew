@@ -45,7 +45,7 @@ public partial class PayeInputFile_N : System.Web.UI.Page
                 //    Session.Remove("redirectedRIN");
                 //    dt_list = GetEmployeeCompanies(comprin);
                 //}
-                //else {
+                //else 
                 Session["dt_l"] = dt_list;
 
                 //}

@@ -23,7 +23,7 @@ public partial class Corporates : System.Web.UI.Page
 
         //  public string Content-type { get; set; }
     }
-
+      //<%--class='<%= Session["roleId"].ToString() != "1" ? "show" : "hide" %>'--%>
     public class Receiver
     {
         public string Success { get; set; }
